@@ -1,4 +1,16 @@
-expenses = []
+import json
+
+
+try:
+    with open("expenses.json", "r") as file:
+        expenses = json.load(file)
+except FileNotFoundError:
+    expenses = []
+
+
+def save_expenses():
+    with open("expenses.json", "w") as file:
+        json.dump(expenses, file, indent=4)
 
 
 def show_menu():
@@ -20,6 +32,8 @@ def add_expense():
     }
 
     expenses.append(expense)
+
+    save_expenses()
 
     print("Expense added successfully!")
 
