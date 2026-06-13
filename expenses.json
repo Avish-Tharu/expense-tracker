@@ -3,5 +3,25 @@
         "amount": 500.0,
         "category": "Food",
         "description": "Lunch"
+    },
+    {
+        "amount": 500.0,
+        "category": "food",
+        "description": "lunch"
+    },
+    {
+        "amount": 300.0,
+        "category": "transport",
+        "description": "bus"
+    },
+    {
+        "amount": 200.0,
+        "category": "food",
+        "description": "snack"
+    },
+    {
+        "amount": 1000.0,
+        "category": "education",
+        "description": "books"
     }
 ]

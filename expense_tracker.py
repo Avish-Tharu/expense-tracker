@@ -17,7 +17,8 @@ def show_menu():
     print("\n===== Expense Tracker =====")
     print("1. Add Expense")
     print("2. View Expenses")
-    print("3. Exit")
+    print("3. Expense Summary")
+    print("4. Exit")
 
 
 def add_expense():
@@ -53,6 +54,31 @@ def view_expenses():
         )
 
 
+def expense_summary():
+    if not expenses:
+        print("No expenses found.")
+        return
+
+    total = 0
+    categories = {}
+
+    for expense in expenses:
+        total += expense["amount"]
+
+        category = expense["category"]
+
+        if category in categories:
+            categories[category] += expense["amount"]
+        else:
+            categories[category] = expense["amount"]
+
+    print("\n===== Expense Summary =====")
+    print(f"\nTotal Expenses: Rs.{total}")
+
+    for category, amount in categories.items():
+        print(f"{category}: Rs.{amount}")
+
+
 while True:
     show_menu()
 
@@ -65,6 +91,9 @@ while True:
         view_expenses()
 
     elif choice == "3":
+        expense_summary()
+
+    elif choice == "4":
         print("Goodbye!")
         break
 
