@@ -1,4 +1,5 @@
 import json
+import matplotlib.pyplot as plt
 
 
 try:
@@ -18,7 +19,8 @@ def show_menu():
     print("1. Add Expense")
     print("2. View Expenses")
     print("3. Expense Summary")
-    print("4. Exit")
+    print("4. Show Expense Chart")
+    print("5. Exit")
 
 
 def add_expense():
@@ -79,6 +81,31 @@ def expense_summary():
         print(f"{category}: Rs.{amount}")
 
 
+def show_chart():
+    if not expenses:
+        print("No expenses found.")
+        return
+
+    categories = {}
+
+    for expense in expenses:
+        category = expense["category"]
+
+        if category in categories:
+            categories[category] += expense["amount"]
+        else:
+            categories[category] = expense["amount"]
+
+    plt.pie(
+        categories.values(),
+        labels=categories.keys(),
+        autopct="%1.1f%%"
+    )
+
+    plt.title("Expense Distribution")
+    plt.show()
+
+
 while True:
     show_menu()
 
@@ -94,6 +121,9 @@ while True:
         expense_summary()
 
     elif choice == "4":
+        show_chart()
+
+    elif choice == "5":
         print("Goodbye!")
         break
 

@@ -23,5 +23,20 @@
         "amount": 1000.0,
         "category": "education",
         "description": "books"
+    },
+    {
+        "amount": 500.0,
+        "category": "Food",
+        "description": "lunch"
+    },
+    {
+        "amount": 200.0,
+        "category": "transport",
+        "description": "travel"
+    },
+    {
+        "amount": 700.0,
+        "category": "education",
+        "description": "maths"
     }
 ]
