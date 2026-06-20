@@ -24,9 +24,35 @@ def show_menu():
 
 
 def add_expense():
-    amount = float(input("Enter amount: "))
-    category = input("Enter category: ")
-    description = input("Enter description: ")
+
+    while True:
+        try:
+            amount = float(input("Enter amount: "))
+
+            if amount <= 0:
+                print("Amount must be greater than 0.")
+                continue
+
+            break
+
+        except ValueError:
+            print("Please enter a valid number.")
+
+    while True:
+        category = input("Enter category: ").strip()
+
+        if category == "":
+            print("Category cannot be empty.")
+        else:
+            break
+
+    while True:
+        description = input("Enter description: ").strip()
+
+        if description == "":
+            print("Description cannot be empty.")
+        else:
+            break
 
     expense = {
         "amount": amount,
